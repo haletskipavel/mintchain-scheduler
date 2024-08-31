@@ -7,8 +7,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Airdrops.Mint.Scheduler/Airdrops.Mint.Scheduler.csproj", "Airdrops.Mint.Scheduler/"]
-RUN dotnet restore "./Airdrops.Mint.Scheduler/Airdrops.Mint.Scheduler.csproj"
+COPY ["Airdrops.Mint.Scheduler.csproj", "."]
+RUN dotnet restore "./Airdrops.Mint.Scheduler.csproj"
 COPY . .
 WORKDIR "/src/Airdrops.Mint.Scheduler"
 RUN dotnet build "./Airdrops.Mint.Scheduler.csproj" -c $BUILD_CONFIGURATION -o /app/build
