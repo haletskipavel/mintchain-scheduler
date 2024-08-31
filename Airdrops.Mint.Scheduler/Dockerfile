@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["Airdrops.Mint.Scheduler.csproj", "."]
 RUN dotnet restore "./Airdrops.Mint.Scheduler.csproj"
 COPY . .
-WORKDIR "/src/Airdrops.Mint.Scheduler"
+WORKDIR "/src/."
 RUN dotnet build "./Airdrops.Mint.Scheduler.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
